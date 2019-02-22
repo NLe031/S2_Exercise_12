@@ -40,12 +40,24 @@ document.getElementById("calendar").innerHTML = createCalendar(thisDay);
 //Create function to generate the calendar table
 function createCalendar(calDate) {
       var calendarHTML = "<table id='calendar_table'>";
+      calendarHTML += calCaption(calDate);
       calendarHTML += "</table>";
       return calendarHTML;
 }
 
 //Function to write the calendar caption
 function calCaption(calDate) {
+
       //monthName array contains the list of month names
       var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+      //Determine current month
+      var thisMonth = calDate.getMonth();
+
+      //Determine current year
+      var thisYear = calDate.getFullYear();
+
+      //Write the caption
+      return "<caption>" + monthName[thisMonth] + " " +
+            thisYear + "</caption>";
 }
